@@ -1,0 +1,52 @@
+''' What are Graphs?
+
+In computer science, a graph is a non-linear data structure consisting of nodes or vertices connected by edges. Graphs are used to represent relationships between objects, and they are a fundamental concept in many areas of computer science, such as network topology, social network analysis, and recommendation systems.
+
+Graph Representation in Python
+
+In Python, graphs can be represented using various data structures, including:
+
+Adjacency Matrix: A matrix where the entry at row i and column j represents the weight of the edge between nodes i and j.
+
+Adjacency List: A list of lists, where each inner list represents the neighbors of a node.
+
+Edge List: A list of edges, where each edge is represented as a tuple of two nodes.
+Example: Social Network Graph
+
+Let's create a graph to represent a social network with 5 users: Alice, Bob, Charlie, David, and Emily. We'll use an adjacency list to represent the graph.
+  '''
+  
+class Graph:
+    def __init__(self):
+        self.nodes = {}
+
+    def add_node(self, node):
+        self.nodes[node] = []
+
+    def add_edge(self, node1, node2):
+        self.nodes[node1].append(node2)
+        self.nodes[node2].append(node1)  # undirected graph
+
+    def print_graph(self):
+        for node, neighbors in self.nodes.items():
+            print(f"{node} -> {neighbors}")
+
+# Create the graph
+graph = Graph()
+
+# Add nodes
+graph.add_node("Alice")
+graph.add_node("Bob")
+graph.add_node("Charlie")
+graph.add_node("David")
+graph.add_node("Emily")
+
+# Add edges
+graph.add_edge("Alice", "Bob")
+graph.add_edge("Alice", "Charlie")
+graph.add_edge("Bob", "David")
+graph.add_edge("Charlie", "Emily")
+graph.add_edge("David", "Emily")
+
+# Print the graph
+graph.print_graph()  
